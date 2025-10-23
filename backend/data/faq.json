@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "question": "Como posso criar uma conta no sistema?",
+    "answer": "Para criar uma conta, clique no botão 'Registrar' na página inicial, preencha os dados solicitados e confirme seu email através do link enviado.",
+    "category": "Conta"
+  },
+  {
+    "id": 2,
+    "question": "Esqueci minha senha, como recuperar?",
+    "answer": "Na página de login, clique em 'Esqueci minha senha', informe seu email e siga as instruções enviadas para redefinir sua senha.",
+    "category": "Conta"
+  },
+  {
+    "id": 3,
+    "question": "Como faço para alterar meus dados pessoais?",
+    "answer": "Acesse 'Meu Perfil' no menu principal, clique em 'Editar' e faça as alterações necessárias. Não esqueça de salvar as mudanças.",
+    "category": "Perfil"
+  },
+  {
+    "id": 4,
+    "question": "O sistema funciona em dispositivos móveis?",
+    "answer": "Sim, nosso sistema é totalmente responsivo e funciona perfeitamente em smartphones e tablets.",
+    "category": "Técnico"
+  },
+  {
+    "id": 5,
+    "question": "Como entro em contato com o suporte?",
+    "answer": "Você pode entrar em contato através do email suporte@sistema.com ou pelo chat online disponível 24/7.",
+    "category": "Suporte"
+  }
+]
