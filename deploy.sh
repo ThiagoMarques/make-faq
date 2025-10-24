@@ -5,8 +5,8 @@ echo "========================"
 
 # Verificar se o Vercel CLI está instalado
 if ! command -v vercel &> /dev/null; then
-    echo "📦 Instalando Vercel CLI..."
-    npm install -g vercel
+    echo "📦 Instalando Vercel CLI localmente..."
+    npm install vercel
 fi
 
 echo "🔧 Configurando deploy do backend..."
@@ -16,14 +16,14 @@ cd backend
 
 # Fazer login no Vercel (se necessário)
 echo "🔐 Verificando autenticação Vercel..."
-if ! vercel whoami &> /dev/null; then
+if ! npx vercel whoami &> /dev/null; then
     echo "Por favor, faça login no Vercel:"
-    vercel login
+    npx vercel login
 fi
 
 # Deploy do backend
 echo "📤 Fazendo deploy do backend..."
-vercel --prod
+npx vercel --prod --yes
 
 if [ $? -eq 0 ]; then
     echo "✅ Backend deployado com sucesso!"

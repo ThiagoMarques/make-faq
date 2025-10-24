@@ -1,0 +1,12 @@
+node_modules
+.git
+*.log
+*.dmg
+*.pkg
+Postman.dmg
+node.pkg
+frontend
+test-api.sh
+install-node.sh
+deploy.sh
+DEPLOY.md
