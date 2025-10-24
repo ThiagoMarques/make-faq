@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { FAQ_API_URL } from '../config/api'
 
 interface FAQItem {
   id: number
@@ -23,7 +24,7 @@ const FaqList: React.FC = () => {
   const fetchFaqs = async () => {
     try {
       setLoading(true)
-      const response = await axios.get('/api/faq')
+      const response = await axios.get(FAQ_API_URL)
       setFaqs(response.data)
     } catch (err) {
       setError('Erro ao carregar FAQs')
