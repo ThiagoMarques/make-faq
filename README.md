@@ -1,16 +1,16 @@
-# Sistema de FAQ
+<｜place▁holder▁no▁700｜>
 
-Um sistema completo de FAQ (Frequently Asked Questions) construído com Next.js para o backend e React com Tailwind CSS para o frontend.
+Um sistema completo de FAQ (Frequently Asked Questions) construído com Next.js API Routes e React com Tailwind CSS para o frontend.
 
 ## 📁 Estrutura do Projeto
 
 ```
 faq-system/
 │
-├── backend/                # Next.js (API)
-│   ├── pages/api/faq.ts   # Endpoint da API
+├── backend/                # Next.js API Routes
+│   ├── pages/api/faq.ts   # API Route para FAQ
 │   ├── data/faq.json      # Dados do FAQ
-│   ├── package.json       # Dependências do backend
+│   ├── package.json       # Dependências
 │   └── next.config.js     # Configuração do Next.js
 │
 ├── frontend/               # React + Tailwind
@@ -30,10 +30,10 @@ faq-system/
 
 ## 🚀 Funcionalidades
 
-### Backend (Next.js API)
+### API (Next.js API Routes)
 - ✅ API REST para gerenciar FAQs
-- ✅ Endpoint GET `/api/faq` para listar FAQs
-- ✅ Endpoint POST `/api/faq` para adicionar novos FAQs
+- ✅ API Route GET `/api/faq` para listar FAQs
+- ✅ API Route POST `/api/faq` para adicionar novos FAQs
 - ✅ CORS configurado para comunicação com frontend
 - ✅ Dados armazenados em JSON
 
@@ -52,7 +52,7 @@ faq-system/
 - Node.js (versão 16 ou superior)
 - npm ou yarn
 
-### 1. Instalar dependências do Backend
+### 1. Instalar dependências da API
 
 ```bash
 cd backend
@@ -66,14 +66,14 @@ cd frontend
 npm install
 ```
 
-### 3. Executar o Backend
+### 3. Executar a API
 
 ```bash
 cd backend
 npm run dev
 ```
 
-O backend estará disponível em: `http://localhost:3000`
+A API estará disponível em: `http://localhost:3000`
 
 ### 4. Executar o Frontend
 
@@ -125,8 +125,8 @@ Adiciona um novo FAQ ao sistema.
 
 ## 🎨 Tecnologias Utilizadas
 
-### Backend
-- **Next.js 14** - Framework React para API
+### API (Server-Side)
+- **Next.js 14** - Framework com API Routes
 - **TypeScript** - Tipagem estática
 - **Node.js** - Runtime JavaScript
 
@@ -160,7 +160,7 @@ interface FAQItem {
 
 ## 🚀 Deploy
 
-### Backend (Vercel/Netlify)
+### API (Vercel/Netlify)
 ```bash
 cd backend
 npm run build

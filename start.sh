@@ -22,7 +22,7 @@ check_port() {
 # Verificar se as portas estão livres
 echo "🔍 Verificando portas..."
 if ! check_port 3000; then
-    echo "❌ Porta 3000 (backend) está em uso. Pare o processo e tente novamente."
+    echo "❌ Porta 3000 (API) está em uso. Pare o processo e tente novamente."
     exit 1
 fi
 
@@ -37,11 +37,11 @@ echo "✅ Portas 3000 e 3001 estão livres"
 echo "📦 Verificando dependências..."
 
 if [ ! -d "backend/node_modules" ]; then
-    echo "📥 Instalando dependências do backend..."
+    echo "📥 Instalando dependências da API..."
     cd backend
     npm install
     if [ $? -ne 0 ]; then
-        echo "❌ Erro ao instalar dependências do backend"
+        echo "❌ Erro ao instalar dependências da API"
         exit 1
     fi
     cd ..
@@ -64,7 +64,7 @@ echo "✅ Dependências verificadas"
 cleanup() {
     echo ""
     echo "🛑 Parando servidores..."
-    kill $BACKEND_PID $FRONTEND_PID 2>/dev/null
+    kill $API_PID $FRONTEND_PID 2>/dev/null
     echo "✅ Servidores parados"
     exit 0
 }
@@ -76,19 +76,19 @@ echo ""
 echo "🚀 Iniciando servidores..."
 echo "=================================="
 
-# Iniciar backend
-echo "🔧 Iniciando Backend (Next.js) na porta 3000..."
+# Iniciar API
+echo "🔧 Iniciando API (Next.js API Routes) na porta 3000..."
 cd backend
-npm run dev > ../backend.log 2>&1 &
-BACKEND_PID=$!
+npm run dev > ../api.log 2>&1 &
+API_PID=$!
 cd ..
 
-# Aguardar backend inicializar
+# Aguardar API inicializar
 sleep 3
 
-# Verificar se backend está rodando
-if ! kill -0 $BACKEND_PID 2>/dev/null; then
-    echo "❌ Erro ao iniciar backend. Verifique backend.log"
+# Verificar se API está rodando
+if ! kill -0 $API_PID 2>/dev/null; then
+    echo "❌ Erro ao iniciar API. Verifique api.log"
     exit 1
 fi
 
@@ -105,18 +105,18 @@ sleep 3
 # Verificar se frontend está rodando
 if ! kill -0 $FRONTEND_PID 2>/dev/null; then
     echo "❌ Erro ao iniciar frontend. Verifique frontend.log"
-    kill $BACKEND_PID 2>/dev/null
+    kill $API_PID 2>/dev/null
     exit 1
 fi
 
 echo ""
 echo "🎉 Sistema FAQ iniciado com sucesso!"
 echo "=================================="
-echo "📡 Backend API:  http://localhost:3000/api/faq"
-echo "🎨 Frontend:     http://localhost:3001"
+echo "📡 API:      http://localhost:3000/api/faq"
+echo "🎨 Frontend: http://localhost:3001"
 echo ""
 echo "📋 Logs disponíveis em:"
-echo "   - backend.log  (Backend)"
+echo "   - api.log      (API Routes)"
 echo "   - frontend.log (Frontend)"
 echo ""
 echo "⏹️  Pressione Ctrl+C para parar os servidores"
