@@ -4,7 +4,7 @@ echo "🚀 Iniciando Sistema de FAQ - Modo Desenvolvimento"
 echo "=================================================="
 
 # Verificar se estamos no diretório correto
-if [ ! -d "backend" ] || [ ! -d "frontend" ]; then
+if [ ! -d "api" ] || [ ! -d "frontend" ]; then
     echo "❌ Erro: Execute este script na pasta raiz do projeto (faq-system)"
     exit 1
 fi
@@ -12,9 +12,9 @@ fi
 # Instalar dependências se necessário
 echo "📦 Verificando dependências..."
 
-if [ ! -d "backend/node_modules" ]; then
-    echo "📥 Instalando dependências do backend..."
-    cd backend && npm install && cd ..
+if [ ! -d "api/node_modules" ]; then
+    echo "📥 Instalando dependências da API..."
+    cd api && npm install && cd ..
 fi
 
 if [ ! -d "frontend/node_modules" ]; then
@@ -25,11 +25,11 @@ fi
 echo "✅ Dependências verificadas"
 echo ""
 
-# Iniciar backend em background
-echo "🔧 Iniciando Backend (Next.js)..."
-cd backend
+# Iniciar API em background
+echo "🔧 Iniciando API (Next.js API Routes)..."
+cd api
 npm run dev &
-BACKEND_PID=$!
+API_PID=$!
 cd ..
 
 # Aguardar um pouco
@@ -48,10 +48,10 @@ sleep 2
 echo ""
 echo "🎉 Sistema FAQ iniciado!"
 echo "=================================================="
-echo "📡 Backend API:  http://localhost:3000/api/faq"
-echo "🎨 Frontend:     http://localhost:3001"
+echo "📡 API:      http://localhost:3000/api/faq"
+echo "🎨 Frontend: http://localhost:3001"
 echo ""
-echo "⏹️  Para parar: kill $BACKEND_PID $FRONTEND_PID"
+echo "⏹️  Para parar: kill $API_PID $FRONTEND_PID"
 echo ""
 
 # Manter o script rodando

@@ -4,7 +4,7 @@ echo "🚀 Iniciando Sistema de FAQ..."
 echo "=================================="
 
 # Verificar se estamos no diretório correto
-if [ ! -d "backend" ] || [ ! -d "frontend" ]; then
+if [ ! -d "api" ] || [ ! -d "frontend" ]; then
     echo "❌ Erro: Execute este script na pasta raiz do projeto (faq-system)"
     exit 1
 fi
@@ -36,9 +36,9 @@ echo "✅ Portas 3000 e 3001 estão livres"
 # Verificar se as dependências estão instaladas
 echo "📦 Verificando dependências..."
 
-if [ ! -d "backend/node_modules" ]; then
+if [ ! -d "api/node_modules" ]; then
     echo "📥 Instalando dependências da API..."
-    cd backend
+    cd api
     npm install
     if [ $? -ne 0 ]; then
         echo "❌ Erro ao instalar dependências da API"
@@ -78,7 +78,7 @@ echo "=================================="
 
 # Iniciar API
 echo "🔧 Iniciando API (Next.js API Routes) na porta 3000..."
-cd backend
+cd api
 npm run dev > ../api.log 2>&1 &
 API_PID=$!
 cd ..

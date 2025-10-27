@@ -3,14 +3,14 @@
 echo "🌐 Expondo API local com localtunnel..."
 echo "======================================"
 
-# Verificar se o backend está rodando
+# Verificar se a API está rodando
 if ! lsof -i :3000 >/dev/null 2>&1; then
-    echo "❌ Backend não está rodando na porta 3000"
-    echo "💡 Execute primeiro: cd backend && npm run dev"
+    echo "❌ API não está rodando na porta 3000"
+    echo "💡 Execute primeiro: cd api && npm run dev"
     exit 1
 fi
 
-echo "✅ Backend detectado na porta 3000"
+echo "✅ API detectada na porta 3000"
 
 # Matar processos localtunnel existentes
 pkill -f localtunnel 2>/dev/null

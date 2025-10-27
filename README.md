@@ -7,7 +7,7 @@ Um sistema completo de FAQ (Frequently Asked Questions) construído com Next.js 
 ```
 faq-system/
 │
-├── backend/                # Next.js API Routes
+├── api/                    # Next.js API Routes
 │   ├── pages/api/faq.ts   # API Route para FAQ
 │   ├── data/faq.json      # Dados do FAQ
 │   ├── package.json       # Dependências
@@ -55,7 +55,7 @@ faq-system/
 ### 1. Instalar dependências da API
 
 ```bash
-cd backend
+cd api
 npm install
 ```
 
@@ -69,7 +69,7 @@ npm install
 ### 3. Executar a API
 
 ```bash
-cd backend
+cd api
 npm run dev
 ```
 
@@ -162,7 +162,7 @@ interface FAQItem {
 
 ### API (Vercel/Netlify)
 ```bash
-cd backend
+cd api
 npm run build
 ```
 
